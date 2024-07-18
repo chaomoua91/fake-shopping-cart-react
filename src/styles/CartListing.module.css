@@ -1,0 +1,105 @@
+.item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  font-family: "Quicksand", sans-serif;
+  color: black;
+  width: 80%;
+}
+
+.left,
+.right {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.image {
+  width: 125px;
+  height: 125px;
+  border-radius: 10px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.price {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.item button {
+  font-family: inherit;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10%;
+}
+
+.add_button,
+.remove_button {
+  width: 50px;
+  height: 30px;
+}
+
+/* tablets / smartphones on horizontal view css rules */
+@media (min-width: 600px) and (max-width: 1024px) {
+}
+
+/* CSS rules for desktop devices */
+@media (min-width: 1024px) {
+  .item {
+    flex-direction: row;
+    gap: 5%;
+
+    border-left: 2px solid rgb(236, 236, 236);
+    padding-left: 5%;
+    height: 400px;
+  }
+
+  .image {
+    width: 350px;
+    height: 350px;
+    border-radius: 10px;
+  }
+
+  .name {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+
+  .price {
+    font-size: 2rem;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .item button:hover {
+    cursor: pointer;
+  }
+
+  .add_button,
+  .remove_button {
+    width: 60px;
+    height: 40px;
+  }
+}
