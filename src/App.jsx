@@ -20,6 +20,16 @@ function App() {
   return (
     <>
       <Navbar />
+      <Outlet
+        context={{
+          handleShopAddClick,
+          handleShopRemoveClick,
+          cartCount,
+          setCartItems,
+          cartItems,
+        }}
+      />
+      <Footer />
     </>
   );
 }
