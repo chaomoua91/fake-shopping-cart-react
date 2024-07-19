@@ -1,7 +1,6 @@
-import React from "react";
 import styles from "../styles/CartListing.module.css";
 
-function CartListing(
+function cartListing({
   id,
   name,
   price,
@@ -9,9 +8,9 @@ function CartListing(
   count,
   onAdd,
   onRemove,
-  setCartItems
-) {
-  function handleCartAddClick(id, onAdd) {
+  setCartItems,
+}) {
+  function handleCartAddClick() {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
         item.id === id
@@ -24,12 +23,10 @@ function CartListing(
       )
     );
 
-    if (onAdd) {
-      onAdd();
-    }
+    onAdd();
   }
 
-  function handleCartRemoveClick(name, id, onRemove) {
+  function handleCartRemoveClick() {
     setCartItems((prevItems) => {
       const itemIndex = prevItems.findIndex((item) => item.name === name);
 
@@ -48,19 +45,15 @@ function CartListing(
           return prevItems.filter((_, index) => index !== itemIndex);
         }
       }
-
-      // Return prevItems if itemIndex is -1 (item not found)
-      return prevItems;
     });
 
-    if (onRemove) {
-      onRemove();
-    }
+    onRemove();
   }
+
   return (
     <div className={styles.item}>
       <div className={styles.left}>
-        <img src={image} className={styles.image} alt={name} />
+        <img src={image} className={styles.image} />
       </div>
 
       <div className={styles.right}>
@@ -69,10 +62,13 @@ function CartListing(
         <p>Item count: {count}</p>
 
         <div className={styles.buttons}>
-          <button className={styles.add_button} onClick={onAdd}>
+          <button className={styles.add_button} onClick={handleCartAddClick}>
             +
           </button>
-          <button className={styles.remove_button} onClick={onRemove}>
+          <button
+            className={styles.remove_button}
+            onClick={handleCartRemoveClick}
+          >
             -
           </button>
         </div>
@@ -81,4 +77,4 @@ function CartListing(
   );
 }
 
-export default CartListing;
+export default cartListing;

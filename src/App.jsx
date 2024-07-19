@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar cart={cartCount} />
       <Outlet
         context={{
           handleShopAddClick,
