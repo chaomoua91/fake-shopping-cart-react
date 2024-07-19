@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import "./path-to-your-tailwind.css";
 
 function App() {
   const [cartCount, setCartCount] = useState(0);
@@ -30,7 +28,6 @@ function App() {
           cartItems,
         }}
       />
-      <Footer />
     </>
   );
 }

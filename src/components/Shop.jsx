@@ -9,31 +9,15 @@ function Shop() {
     useOutletContext();
 
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true); // Loading state
-  const [error, setError] = useState(null); // Error state
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const products = await getProducts();
-        setProducts(products);
-      } catch (err) {
-        setError("Failed to fetch products.");
-      } finally {
-        setLoading(false);
-      }
+      const products = await getProducts();
+      setProducts(products);
     };
 
     fetchData();
   }, []);
-
-  if (loading) {
-    return <div className={styles.loading}>Loading products...</div>;
-  }
-
-  if (error) {
-    return <div className={styles.error}>{error}</div>;
-  }
 
   return (
     <div id={styles.main}>
